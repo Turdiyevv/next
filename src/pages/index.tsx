@@ -8,12 +8,13 @@ import Sidebar from './components/sidebar';
 
 const inter = Inter({ subsets: ['latin'] })
 
+
 export default function Home() {
 
   return (
-    <main className = {`${ inter.className} h-full bg-slate-100`}>
+    <main className = {`${ inter.className} bg-slate-100`}>
       <Navbar/>
-      <div className={`h-full flex bg-no-repeat bg-cover bg-center bg-auto bg-[url('/images/05.jpg')]`}>
+      <div className={` flex bg-no-repeat bg-cover bg-center bg-[url('/images/05.jpg')]`}>
         <Sidebar/>
         <Header/>
       </div>
