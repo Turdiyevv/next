@@ -6,7 +6,9 @@ import React from 'react'
 import Image from 'next/image';
 
 
+
 export default function header() {
+
   return (
       <div className={`flex w-screen`}>
 
@@ -20,23 +22,24 @@ export default function header() {
             {/* slider */}
 
             {/*<div className={` p-1 m-1 rounded-xl flex items-center  bg-gray-900 text-white shadow-lg h-40 md:h-2/3`}>*/}
-
             {/*</div>*/}
-                <div className="mx-auto relative bg-gray-900  p-1 m-1 rounded-xl flex items-center text-white shadow-lg h-40 md:h-2/3">
-                    <div id="default-carousel" className="static mx-5" data-carousel="static">
-                        <div className="overflow-hidden relative h-56 rounded-lg sm:h-64 xl:h-80 2xl:h-96">
-                            <div className="hidden duration-700 ease-in-out" data-carousel-item>
-                                <span className="absolute top-1/2 left-1/2 text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 sm:text-3xl dark:text-gray-800">First Slide sdfwefd wed </span>
+
+            <div className=" relative m-1 rounded-xl flex items-center text-white shadow-lg h-40 md:h-2/3">
+                    <div id="default-carousel" className="rounded-xl w-full h-full relative group" data-carousel="static">
+                        <div className="overflow-hidden rounded-lg w-full h-full">
+                            <div className=" duration-700 ease-in-out bg-no-repeat bg-cover bg-center bg-[url('/images/05.jpg')] w-full h-full">
+                                <span className="absolute top-1/2 left-1/2 text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 sm:text-3xl dark:text-gray-800">
+                                    First Slide sdfwefd wed
+                                </span>
                             </div>
-                            <div className="hidden duration-700 ease-in-out" data-carousel-item>
+                            <div className="hidden bg-no-repeat bg-cover bg-center bg-[url('/images/system.jpg')] duration-700 ease-in-out">
                             </div>
-                            <div className="hidden duration-700 ease-in-out" data-carousel-item>
+                            <div className="hidden duration-700 ease-in-out">
                             </div>
                         </div>
-                        <button type="button" className="flex absolute px-4 cursor-pointer group focus:outline-none"
-                                data-carousel-prev>
-                            <span className="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30
-                                dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white
+                        <button type="button" className=" absolute flex px-4 cursor-pointer group focus:outline-none">
+                            <span className="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-black/30
+                                dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-black
                                 dark:group-focus:ring-gray-800/70 group-focus:outline-none">
                                 <svg className="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor"
                                      viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -45,10 +48,9 @@ export default function header() {
                                 <span className="hidden">Previous</span>
                             </span>
                         </button>
-                        <button type="button" className="flex absolute  px-4 cursor-pointer group focus:outline-none"
-                                data-carousel-next>
+                        <button type="button" className="hidden  px-4 cursor-pointer group focus:outline-none">
                             <span className="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30
-                            dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white
+                            dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-black
                             dark:group-focus:ring-gray-800/70 group-focus:outline-none">
                                 <svg className="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor"
                                      viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -61,16 +63,6 @@ export default function header() {
                 </div>
 
             {/* slider */}
-          <div className={` p-1 m-1 rounded-xl flex items-center  bg-gray-900 text-white shadow-lg h-40 md:h-2/3`}>
-            <div className='bg-gray-900 text-white shadow-lg h-10 rounded-xl flex bg-opacity-50 items-center p-3 mx-auto'>
-                photos
-              </div>
-          </div>
-          <div className={` p-1 m-1 flex items-center rounded-xl bg-gray-900 text-white shadow-lg h-40 md:h-2/3`}>
-            <div className='bg-gray-900 text-white shadow-lg h-10 rounded-xl flex bg-opacity-50 items-center p-3 mx-auto'>
-                videos
-              </div>
-          </div>
           <div className={`md:hidden  p-1 m-1 flex items-center rounded-xl bg-gray-900 text-white shadow-lg h-40 md:h-2/3`}>
             <div className='mx-auto'>location</div>
           </div>

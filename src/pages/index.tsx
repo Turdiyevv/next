@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <main className = {`${ inter.className} bg-slate-100`}>
       <Navbar/>
-      <div className={` flex bg-no-repeat bg-cover bg-center bg-[url('/images/05.jpg')]`}>
+      <div className={` flex`}>
         <Sidebar/>
         <Header/>
       </div>
