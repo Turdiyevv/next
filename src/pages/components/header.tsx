@@ -8,7 +8,6 @@ import Image from 'next/image';
 
 
 export default function header() {
-
   return (
       <div className={`flex w-screen`}>
 
@@ -63,6 +62,10 @@ export default function header() {
                 </div>
 
             {/* slider */}
+          <div className={` p-1 m-1 relative rounded-xl text-white shadow-lg h-40 md:h-2/3`}>
+            <div className='w-full h-full rounded-2xl bg-center bg-coverduration-500'>
+              </div>
+          </div>
           <div className={`md:hidden  p-1 m-1 flex items-center rounded-xl bg-gray-900 text-white shadow-lg h-40 md:h-2/3`}>
             <div className='mx-auto'>location</div>
           </div>
