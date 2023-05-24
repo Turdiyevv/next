@@ -1,24 +1,31 @@
-import React, { useState } from 'react'
 import Image from 'next/image';
-import fs from 'fs';
-import path from 'path';
 
+export default function Header({  }) {
+  const photoPath = [
+    { id: 0, path: '/images/photos/05.gpg'},
+    { id: 1, path: '/images/photos/06.gpg'},
+    { id: 2, path: '/images/photos/07.gpg'},
+    { id: 3, path: '/images/photos/08.gpg'},
+    { id: 4, path: '/images/photos/09.gpg'},
+    { id: 5, path: '/images/photos/10.gpg'}
+  ]
 
-export default function header() {
-
-  
-  const photosDirectory = path.join(process.cwd(), 'public/photos');
-  const photoFileNames = fs.readdirSync(photosDirectory);
-  const photoPaths = photoFileNames.map((fileName) => `/photos/${fileName}`);
+  const linkPhoto = [
+      '/images/photos/05.gpg',
+      '/images/photos/06.gpg',
+      '/images/photos/07.gpg',
+      '/images/photos/08.gpg',
+      '/images/photos/09.gpg',
+      '/images/photos/10.gpg',
+  ]
 
   function viewImage() {
-    console.log(photoPaths);
+    console.log(photoPath);
     
   }
 
   return (
       <div className={`flex w-screen`}>
-
         <div className={`w-full md:w-2/3 overflow-y-scroll`}>
           <div className={` p-1 m-1 rounded-xl md:m-1 md:rounded-xl bg-gray-500 text-white shadow-lg
               h-40 md:h-2/3 flex items-center bg-no-repeat bg-cover bg-center bg-[url('/images/system.jpg')]`}>
@@ -27,16 +34,20 @@ export default function header() {
               </div>
           </div>
 
+
+            {/*slide*/}
             <div className=" relative m-1 rounded-xl overflow-hidden text-white shadow-lg h-40 md:h-2/3">
               <div className=" duration-700 ease-in-out bg-no-repeat bg-cover bg-center w-full h-full">
+                {
+                  photoPath.map((item) =>(
+                      <Image key={item.id} src={item.path} alt="menu" width="100" height="100"/>
+                  ))
+                }
                   <span className="absolute top-1/2 left-1/2 text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 sm:text-3xl dark:text-gray-800">
-                      First Slide sdfwefd wed
+                      First Slide photos
                   </span>
               </div>
-              <div className=" bg-no-repeat bg-cover bg-center bg-[url('/photos/06.jpg')] w-full h-full duration-700 ease-in-out">
-              </div>
-              <div className=" duration-700 w-full h-full bg-no-repeat bg-cover bg-center bg-[url('/photos/07.jpg')]">
-              </div>
+
               <div className='absolute flex inset-0 items-center justify-between p-4'>
                 <button type="button" className="rounded-xl active:opacity-0 duration-300"
                 >
@@ -48,6 +59,30 @@ export default function header() {
                 </button>
               </div>
             </div>
+            {/*slide*/}
+            {/*slide*/}
+            <div className=" relative m-1 mt-3 rounded-xl overflow-hidden text-white bg-black shadow-lg h-40 md:h-2/3">
+              <div className=" duration-700 ease-in-out bg-no-repeat bg-cover bg-center w-full h-full">
+                  <span className="absolute top-1/2 left-1/2 text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 sm:text-3xl dark:text-gray-800">
+                      First Slide vidios
+                  </span>
+              </div>
+              <div className=" bg-no-repeat bg-cover bg-center bg-[url('/photos/06.jpg')] w-full h-full duration-700 ease-in-out">
+              </div>
+              <div className=" duration-700 w-full h-full bg-no-repeat bg-cover bg-center bg-[url('/photos/07.jpg')]">
+              </div>
+              <div className='absolute flex inset-0 items-center justify-between p-4'>
+                <button type="button" className="rounded-xl active:opacity-0 duration-300"
+                >
+                  <Image src="/images/before.png" alt="left" width="100" height="100" style={{width: 45}}
+                  onClick={viewImage}/>
+                </button>
+                <button type="button" className="rounded-xl active:opacity-0 duration-300">
+                  <Image src="/images/next.png" alt="right" width="100" height="100" style={{width: 45}} />
+                </button>
+              </div>
+            </div>
+            {/*slide*/}
 
           <div className={` p-1 m-1 relative rounded-xl text-white shadow-lg h-40 md:h-2/3`}>
             <div className='w-full h-full rounded-2xl bg-center bg-gray-500'>
@@ -69,3 +104,5 @@ export default function header() {
     </div>
   )
 }
+
+

@@ -19,11 +19,11 @@ export default function Home() {
         <Header/>
       </div>
 
-      {/* { datalinnks.map(( item) => (
-          <div key={item.id} className={` p-1 m-1 rounded-xl bg-gray-900 text-white shadow-lg h-40 md:h-2/3`}>
-            <div>{item.doc}</div>
-          </div>
-      ))} */}
+      {/*{ datalinnks.map(( item) => (*/}
+      {/*    <div key={item.id} className={` p-1 m-1 rounded-xl bg-gray-900 text-white shadow-lg h-40 md:h-2/3`}>*/}
+      {/*      <div>{item.doc}</div>*/}
+      {/*    </div>*/}
+      {/*))}*/}
     </main>
   )
 }
