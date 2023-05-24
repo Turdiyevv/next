@@ -1,13 +1,21 @@
-import React from 'react'
-// import "swiper/css/navigation";
-// import 'swiper/css';
-// import { Swiper, SwiperSlide } from "swiper/react";
-// import { Navigation } from "swiper";
+import React, { useState } from 'react'
 import Image from 'next/image';
-
+import fs from 'fs';
+import path from 'path';
 
 
 export default function header() {
+
+  
+  const photosDirectory = path.join(process.cwd(), 'public/photos');
+  const photoFileNames = fs.readdirSync(photosDirectory);
+  const photoPaths = photoFileNames.map((fileName) => `/photos/${fileName}`);
+
+  function viewImage() {
+    console.log(photoPaths);
+    
+  }
+
   return (
       <div className={`flex w-screen`}>
 
@@ -18,52 +26,31 @@ export default function header() {
                 information
               </div>
           </div>
-            {/* slider */}
 
-            {/*<div className={` p-1 m-1 rounded-xl flex items-center  bg-gray-900 text-white shadow-lg h-40 md:h-2/3`}>*/}
-            {/*</div>*/}
+            <div className=" relative m-1 rounded-xl overflow-hidden text-white shadow-lg h-40 md:h-2/3">
+              <div className=" duration-700 ease-in-out bg-no-repeat bg-cover bg-center w-full h-full">
+                  <span className="absolute top-1/2 left-1/2 text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 sm:text-3xl dark:text-gray-800">
+                      First Slide sdfwefd wed
+                  </span>
+              </div>
+              <div className=" bg-no-repeat bg-cover bg-center bg-[url('/photos/06.jpg')] w-full h-full duration-700 ease-in-out">
+              </div>
+              <div className=" duration-700 w-full h-full bg-no-repeat bg-cover bg-center bg-[url('/photos/07.jpg')]">
+              </div>
+              <div className='absolute flex inset-0 items-center justify-between p-4'>
+                <button type="button" className="rounded-xl active:opacity-0 duration-300"
+                >
+                  <Image src="/images/before.png" alt="left" width="100" height="100" style={{width: 45}} 
+                  onClick={viewImage}/>
+                </button>
+                <button type="button" className="rounded-xl active:opacity-0 duration-300">
+                  <Image src="/images/next.png" alt="right" width="100" height="100" style={{width: 45}} />
+                </button>
+              </div>
+            </div>
 
-            <div className=" relative m-1 rounded-xl flex items-center text-white shadow-lg h-40 md:h-2/3">
-                    <div id="default-carousel" className="rounded-xl w-full h-full relative group" data-carousel="static">
-                        <div className="overflow-hidden rounded-lg w-full h-full">
-                            <div className=" duration-700 ease-in-out bg-no-repeat bg-cover bg-center bg-[url('/images/05.jpg')] w-full h-full">
-                                <span className="absolute top-1/2 left-1/2 text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 sm:text-3xl dark:text-gray-800">
-                                    First Slide sdfwefd wed
-                                </span>
-                            </div>
-                            <div className="hidden bg-no-repeat bg-cover bg-center bg-[url('/images/system.jpg')] duration-700 ease-in-out">
-                            </div>
-                            <div className="hidden duration-700 ease-in-out">
-                            </div>
-                        </div>
-                        <button type="button" className=" absolute flex px-4 cursor-pointer group focus:outline-none">
-                            <span className="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-black/30
-                                dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-black
-                                dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                                <svg className="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor"
-                                     viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                                </svg>
-                                <span className="hidden">Previous</span>
-                            </span>
-                        </button>
-                        <button type="button" className="hidden  px-4 cursor-pointer group focus:outline-none">
-                            <span className="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30
-                            dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-black
-                            dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                                <svg className="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor"
-                                     viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                                <span className="hidden">Next</span>
-                            </span>
-                        </button>
-                    </div>
-                </div>
-
-            {/* slider */}
           <div className={` p-1 m-1 relative rounded-xl text-white shadow-lg h-40 md:h-2/3`}>
-            <div className='w-full h-full rounded-2xl bg-center bg-coverduration-500'>
+            <div className='w-full h-full rounded-2xl bg-center bg-gray-500'>
               </div>
           </div>
           <div className={`md:hidden  p-1 m-1 flex items-center rounded-xl bg-gray-900 text-white shadow-lg h-40 md:h-2/3`}>
