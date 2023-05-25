@@ -1,26 +1,24 @@
 import Image from 'next/image';
+import { useMemo } from 'react';
 
 export default function Header({  }) {
   const photoPath = [
-    { id: 0, path: '/images/photos/05.gpg'},
-    { id: 1, path: '/images/photos/06.gpg'},
-    { id: 2, path: '/images/photos/07.gpg'},
-    { id: 3, path: '/images/photos/08.gpg'},
-    { id: 4, path: '/images/photos/09.gpg'},
-    { id: 5, path: '/images/photos/10.gpg'}
+    { id: 0, path: '/photos/05.gpg'},
+    { id: 1, path: '/photos/06.gpg'},
+    { id: 2, path: '/photos/07.gpg'},
+    { id: 3, path: '/photos/08.gpg'},
+    { id: 4, path: '/photos/09.gpg'},
+    { id: 5, path: '/photos/10.gpg'}
   ]
 
-  const linkPhoto = [
-      '/images/photos/05.gpg',
-      '/images/photos/06.gpg',
-      '/images/photos/07.gpg',
-      '/images/photos/08.gpg',
-      '/images/photos/09.gpg',
-      '/images/photos/10.gpg',
-  ]
+  
+  const photos = useMemo(() => {
+    const imagePaths = require.context('/public/photos', false, /\.(jpe?g|png|gif)$/);
+    return imagePaths.keys().map((key) => imagePaths(key).default);
+  }, []);
 
   function viewImage() {
-    console.log(photoPath);
+    console.log(photos);
     
   }
 
@@ -37,12 +35,11 @@ export default function Header({  }) {
 
             {/*slide*/}
             <div className=" relative m-1 rounded-xl overflow-hidden text-white shadow-lg h-40 md:h-2/3">
-              <div className=" duration-700 ease-in-out bg-no-repeat bg-cover bg-center w-full h-full">
-                {
-                  photoPath.map((item) =>(
-                      <Image key={item.id} src={item.path} alt="menu" width="100" height="100"/>
-                  ))
-                }
+              <div className="flex duration-700 ease-in-out bg-no-repeat bg-cover bg-center w-full h-full">
+                
+                  {photos.map((photo, index) => (
+                    <Image key={index} src={photo} alt="photo" />
+                  ))}
                   <span className="absolute top-1/2 left-1/2 text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 sm:text-3xl dark:text-gray-800">
                       First Slide photos
                   </span>
