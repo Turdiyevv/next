@@ -2,23 +2,20 @@ import Image from 'next/image';
 import { useMemo } from 'react';
 
 export default function Header({  }) {
-  const photoPath = [
-    { id: 0, path: '/photos/05.gpg'},
-    { id: 1, path: '/photos/06.gpg'},
-    { id: 2, path: '/photos/07.gpg'},
-    { id: 3, path: '/photos/08.gpg'},
-    { id: 4, path: '/photos/09.gpg'},
-    { id: 5, path: '/photos/10.gpg'}
-  ]
 
-  
-  const photos = useMemo(() => {
-    const imagePaths = require.context('/public/photos', false, /\.(jpe?g|png|gif)$/);
-    return imagePaths.keys().map((key) => imagePaths(key).default);
+  const photoPath = useMemo(() => {
+    return [
+      { id: 0, path: '/photos/05.jpg'},
+      { id: 1, path: '/photos/06.jpg'},
+      { id: 2, path: '/photos/07.jpg'},
+      { id: 3, path: '/photos/08.jpg'},
+      { id: 4, path: '/photos/09.jpg'},
+      { id: 5, path: '/photos/10.jpg'}
+    ];
   }, []);
 
   function viewImage() {
-    console.log(photos);
+    console.log(photoPath);
     
   }
 
@@ -34,17 +31,14 @@ export default function Header({  }) {
 
 
             {/*slide*/}
-            <div className=" relative m-1 rounded-xl overflow-hidden text-white shadow-lg h-40 md:h-2/3">
-              <div className="flex duration-700 ease-in-out bg-no-repeat bg-cover bg-center w-full h-full">
-                
-                  {photos.map((photo, index) => (
-                    <Image key={index} src={photo} alt="photo" />
-                  ))}
-                  <span className="absolute top-1/2 left-1/2 text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 sm:text-3xl dark:text-gray-800">
-                      First Slide photos
-                  </span>
+            <div className=" relative m-1 rounded-xl text-white shadow-lg h-40 md:h-2/3">
+              <div className="inline-block">
+                {photoPath.map((item) => (
+                    <div key={item.id} className="w-full h-full fixed">
+                      <Image alt="photo" src={item.path} width="100" height="100" />
+                    </div>
+                ))}
               </div>
-
               <div className='absolute flex inset-0 items-center justify-between p-4'>
                 <button type="button" className="rounded-xl active:opacity-0 duration-300"
                 >
@@ -57,6 +51,8 @@ export default function Header({  }) {
               </div>
             </div>
             {/*slide*/}
+
+
             {/*slide*/}
             <div className=" relative m-1 mt-3 rounded-xl overflow-hidden text-white bg-black shadow-lg h-40 md:h-2/3">
               <div className=" duration-700 ease-in-out bg-no-repeat bg-cover bg-center w-full h-full">
