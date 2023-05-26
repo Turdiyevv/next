@@ -30,7 +30,7 @@ function Navbar() {
                <ul className={` ${toggleNav ? '' : 'hidden'} bg-slate-900 duration-3000 md:flex items-center text-blue-600 p-2 md:pa-2`}>
                   <li>
                      <button className='rounded-lg outline outline-1 flex px-1 ml-auto'>
-                        <a className={"inline-block no-underline hover:text-white duration-300 font-medium p-1 lg:-ml-2"} href="#">Phone</a>
+                        <a className={"inline-block no-underline hover:text-white duration-300 font-medium p-1 lg:-ml-2"} href="">Phone</a>
                         <Image src="/images/telephone-call.png" alt="menu" width="100" height="100" style={{width: 20}} className="m-auto"/>
                      </button>
                   </li>

@@ -2,16 +2,12 @@ import Image from 'next/image';
 import { useMemo } from 'react';
 
 import React, { useRef, useState } from "react";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
-
-
-// import required modules
 import { Navigation } from "swiper";
+
+
 
 export default function Header({  }) {
 
@@ -26,10 +22,6 @@ export default function Header({  }) {
     ];
   }, []);
 
-  function viewImage() {
-    console.log(photoPath);
-    
-  }
 
   return (
       <div className={`flex w-screen overflow-hidden`}>
@@ -41,39 +33,30 @@ export default function Header({  }) {
               </div>
           </div>
 
-          <div className="p-1 m-1 md:m-1 md:rounded-xl h-40 md:h-2/3">
-            <Swiper navigation={true} modules={[Navigation]} className="mySwiper" effect='cube'>
+          <div className="p-1 m-1 md:m-1 h-40 md:h-2/3">
+            <Swiper navigation={true} modules={[Navigation]} className="mySwiper rounded-xl" effect='cube'>
                   {photoPath.map((item) => (
                       <SwiperSlide key={item.id} className="">
-                        <Image alt="photo" src={item.path} width="100" height="100" className='justify-center object-fill'/>
+                        <Image alt="photo" src={item.path} width="100" height="100" className=''/>
                       </SwiperSlide>
                   ))}
             </Swiper>
           </div>
 
-            {/*slide*/}
-            <div className=" relative m-1 mt-3 rounded-xl overflow-hidden text-white bg-black shadow-lg h-40 md:h-2/3">
-              <div className=" duration-700 ease-in-out bg-no-repeat bg-cover bg-center w-full h-full">
-                  <span className="absolute top-1/2 left-1/2 text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 sm:text-3xl dark:text-gray-800">
-                      First Slide vidios
-                  </span>
-              </div>
-              <div className=" bg-no-repeat bg-cover bg-center bg-[url('/photos/06.jpg')] w-full h-full duration-700 ease-in-out">
-              </div>
-              <div className=" duration-700 w-full h-full bg-no-repeat bg-cover bg-center bg-[url('/photos/07.jpg')]">
-              </div>
-              <div className='absolute flex inset-0 items-center justify-between p-4'>
-                <button type="button" className="rounded-xl active:opacity-0 duration-300"
-                >
-                  <Image src="/images/before.png" alt="left" width="100" height="100" style={{width: 45}}
-                  onClick={viewImage}/>
-                </button>
-                <button type="button" className="rounded-xl active:opacity-0 duration-300">
-                  <Image src="/images/next.png" alt="right" width="100" height="100" style={{width: 45}} />
-                </button>
-              </div>
-            </div>
-            {/*slide*/}
+            <div className="p-1 m-1 md:m-1 h-40 md:h-2/3">
+            <Swiper navigation={true} modules={[Navigation]} className="mySwiper rounded-xl w-full h-full" effect='cube'>
+              <SwiperSlide className="bg-black">
+              </SwiperSlide>
+              <SwiperSlide className="bg-red-950">
+              </SwiperSlide>
+              <SwiperSlide className="bg-blue-900">
+              </SwiperSlide>
+              <SwiperSlide className="bg-gray-900">
+              </SwiperSlide>
+              <SwiperSlide className="bg-green-950">
+              </SwiperSlide>
+            </Swiper>
+          </div>
 
           <div className={` p-1 m-1 relative rounded-xl text-white shadow-lg h-40 md:h-2/3`}>
             <div className='w-full h-full rounded-2xl bg-center bg-gray-500'>
