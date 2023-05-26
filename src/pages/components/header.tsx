@@ -1,6 +1,18 @@
 import Image from 'next/image';
 import { useMemo } from 'react';
 
+import React, { useRef, useState } from "react";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+
+
+// import required modules
+import { Navigation } from "swiper";
+
 export default function Header({  }) {
 
   const photoPath = useMemo(() => {
@@ -20,7 +32,7 @@ export default function Header({  }) {
   }
 
   return (
-      <div className={`flex w-screen`}>
+      <div className={`flex w-screen overflow-hidden`}>
         <div className={`w-full md:w-2/3 overflow-y-scroll`}>
           <div className={` p-1 m-1 rounded-xl md:m-1 md:rounded-xl bg-gray-500 text-white shadow-lg
               h-40 md:h-2/3 flex items-center bg-no-repeat bg-cover bg-center bg-[url('/images/system.jpg')]`}>
@@ -29,29 +41,15 @@ export default function Header({  }) {
               </div>
           </div>
 
-
-            {/*slide*/}
-            <div className=" relative m-1 rounded-xl text-white shadow-lg h-40 md:h-2/3">
-              <div className="flex w-full h-full">
-                {photoPath.map((item) => (
-                    <div key={item.id} className="">
-                      <Image alt="photo" src={item.path} width="100" height="100" className='h-full w-full'/>
-                    </div>
-                ))}
-              </div>
-              <div className='absolute flex inset-0 items-center justify-between md:p-4 p-2'>
-                <button type="button" className="rounded-xl active:opacity-0 duration-300 max-sm:w-5 max-sm:h-10"
-                >
-                  <Image src="/images/before.png" alt="left" width="100" height="100" style={{width: 45}} 
-                  onClick={viewImage}/>
-                </button>
-                <button type="button" className="rounded-xl active:opacity-0 duration-300 max-sm:w-5 max-sm:h-10">
-                  <Image src="/images/next.png" alt="right" width="100" height="100" style={{width: 45}} />
-                </button>
-              </div>
-            </div>
-            {/*slide*/}
-
+          <div className="p-1 m-1 md:m-1 md:rounded-xl h-40 md:h-2/3">
+            <Swiper navigation={true} modules={[Navigation]} className="mySwiper" effect='cube'>
+                  {photoPath.map((item) => (
+                      <SwiperSlide key={item.id} className="">
+                        <Image alt="photo" src={item.path} width="100" height="100" className='justify-center object-fill'/>
+                      </SwiperSlide>
+                  ))}
+            </Swiper>
+          </div>
 
             {/*slide*/}
             <div className=" relative m-1 mt-3 rounded-xl overflow-hidden text-white bg-black shadow-lg h-40 md:h-2/3">
