@@ -32,20 +32,20 @@ export default function Header({  }) {
 
             {/*slide*/}
             <div className=" relative m-1 rounded-xl text-white shadow-lg h-40 md:h-2/3">
-              <div className="inline-block">
+              <div className="flex w-full h-full">
                 {photoPath.map((item) => (
-                    <div key={item.id} className="w-full h-full fixed">
-                      <Image alt="photo" src={item.path} width="100" height="100" />
+                    <div key={item.id} className="">
+                      <Image alt="photo" src={item.path} width="100" height="100" className='h-full w-full'/>
                     </div>
                 ))}
               </div>
-              <div className='absolute flex inset-0 items-center justify-between p-4'>
-                <button type="button" className="rounded-xl active:opacity-0 duration-300"
+              <div className='absolute flex inset-0 items-center justify-between md:p-4 p-2'>
+                <button type="button" className="rounded-xl active:opacity-0 duration-300 max-sm:w-5 max-sm:h-10"
                 >
                   <Image src="/images/before.png" alt="left" width="100" height="100" style={{width: 45}} 
                   onClick={viewImage}/>
                 </button>
-                <button type="button" className="rounded-xl active:opacity-0 duration-300">
+                <button type="button" className="rounded-xl active:opacity-0 duration-300 max-sm:w-5 max-sm:h-10">
                   <Image src="/images/next.png" alt="right" width="100" height="100" style={{width: 45}} />
                 </button>
               </div>
